@@ -1,19 +1,25 @@
 //Load save transactions from localstorage like browser
-let transaction = JSON.parse(localStorage.getItem("transactions")) || [];
+let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
 function saveTransactions() {
-    localStorage.setItem("transactions", JSON.stringify("transactions"));
+    localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 
-function renderTransaction() {
+function calculateBalance() {
+  return transactions.reduce((total, t) => {
+    return t.type === "income" ? total + t.amount : total - t.amount;
+  }, 0);
+}
+
+function renderTransactions() {
     const list = document.getElementById("transaction-list");
     const balance = document.getElementById("balance");
 
 
-list.innerHTMl ="";
+list.innerHTML ="";
 transactions.forEach((t, index) => {
     const li = document.createElement("li");
-    li.classname =  t.type;
+    li.className =  t.type;
     li.innerHTML = `
      <span>${t.desc}</span>
       <span>${t.type === "income" ? "+" : "-"}₱${t.amount.toFixed(2)}</span>
@@ -47,4 +53,4 @@ document.getElementById("transaction-form").addEventListener("submit", function(
   this.reset();
 });
 
-renderTransaction ();
+renderTransactions ();
