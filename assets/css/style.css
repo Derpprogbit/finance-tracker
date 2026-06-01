@@ -4,7 +4,7 @@ body {
     max-width: 500px;
     margin: 2rem auto;
     padding: 1rem;
-    background: #f5f5f5;
+    background: #F0F4F8;
 }
 h1 { margin-bottom: 1rem; }
 #balance {
@@ -41,8 +41,8 @@ button {
   border-radius: 6px;
   margin-bottom: 8px;
 }
-.income { border-left: 4px solid #3B6D11; }
-.expense { border-left: 4px solid #A32D2D; }
+.income { border-left: 4px solid #3B6D11; background: #f9fff5; }
+.expense { border-left: 4px solid #A32D2D; background: #fff9f9; }
 
 .summary-cards {
   display: flex;
@@ -86,3 +86,44 @@ button {
   color: #185FA5;
 }
 
+.transaction-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.transaction-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.type-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+
+.tag-income {
+  background: #EAF3DE;
+  color: #3B6D11;
+}
+
+.tag-expense {
+  background: #FCEBEB;
+  color: #A32D2D;
+}
