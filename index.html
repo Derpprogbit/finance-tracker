@@ -8,7 +8,20 @@
 <body>
     <h1>Finance Tracker</h1>
 
-    <div id="balance">Balance: ₱0.00</div>
+    <div class="summary-cards">
+        <div class="card income-card">
+            <span class="card-label">Total Income</span>
+            <span class="card-amount" id="total-income">₱0.00</span>
+        </div>
+        <div class="card expense-card">
+            <span class="card-label">Total Expenses</span>
+            <span class="card-amount" id="total-expenses">₱0.00</span>
+        </div>
+         <div class="card balance-card">
+            <span class="card-label">Net Balance</span>
+            <span class="card-amount" id="balance">₱0.00</span>
+        </div>
+    </div>
 
     <form id="transaction-form">
         <input type="text" id="desc" placeholder="Description" required>
