@@ -44,3 +44,45 @@ button {
 .income { border-left: 4px solid #3B6D11; }
 .expense { border-left: 4px solid #A32D2D; }
 
+.summary-cards {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.card {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-amount {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.income-card {
+  background: #EAF3DE;
+  color: #3B6D11;
+}
+
+.expense-card {
+  background: #FCEBEB;
+  color: #A32D2D;
+}
+
+.balance-card {
+  background: #E6F1FB;
+  color: #185FA5;
+}
+
