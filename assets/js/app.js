@@ -41,8 +41,13 @@ transactions.forEach((t, index) => {
 });
 
 const total = calculateBalance();
-balance.textContent = "Balance: ₱" + total.toFixed(2);
-balance.style.color = total >= 0 ? "#3B6D11" : "#A32D2D";
+const income = calculateIncome();
+const expenses = calculateExpenses();
+
+document.getElementById("balance").textContent = "₱" + total.toFixed(2);
+document.getElementById("balance").style.color = total >= 0 ? "#3B6D11" : "#A32D2D";
+document.getElementById("total-income").textContent = "₱" + income.toFixed(2);
+document.getElementById("total-expenses").textContent = "₱" + expenses.toFixed(2);
 }
 
 function deleteTransaction(index) {
