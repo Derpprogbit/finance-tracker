@@ -31,11 +31,17 @@ function renderTransactions() {
 list.innerHTML ="";
 transactions.forEach((t, index) => {
     const li = document.createElement("li");
-    li.className =  t.type;
+    li.className = `transaction-item ${t.type}`;
     li.innerHTML = `
-     <span>${t.desc}</span>
-      <span>${t.type === "income" ? "+" : "-"}₱${t.amount.toFixed(2)}</span>
-      <button onclick="deleteTransaction(${index})">✕</button>
+      <div class="transaction-top">
+        <span>${t.category} ${t.desc}</span>
+        <span>${t.type === "income" ? "+" : "-"}₱${t.amount.toFixed(2)}</span>
+      </div>
+      <div class="transaction-bottom">
+        <span class="type-tag ${t.type === "income" ? "tag-income" : "tag-expense"}">${t.type}</span>
+        <span>${t.date}</span>
+        <button onclick="deleteTransaction(${index})">✕</button>
+      </div>
     `;
     list.appendChild(li);
 });
@@ -61,10 +67,12 @@ document.getElementById("transaction-form").addEventListener("submit", function(
   const desc = document.getElementById("desc").value.trim();
   const amount = parseFloat(document.getElementById("amount").value);
   const type = document.getElementById("type").value;
+  const category = document.getElementById("category").value;
+  const date = document.getElementById("date").value;
 
   if (!desc || isNaN(amount) || amount <= 0) return;
 
-  transactions.unshift({ desc, amount, type });
+  transactions.unshift({ desc, amount, type, category, date });
   saveTransactions();
   renderTransactions();
   this.reset();
