@@ -11,6 +11,18 @@ function calculateBalance() {
   }, 0);
 }
 
+function calculateIncome() {
+  return transactions
+    .filter(t => t.type === "income")
+    .reduce((total, t) => total + t.amount, 0);
+}
+
+function calculateExpenses() {
+  return transactions
+    .filter(t => t.type === "expense")
+    .reduce((total, t) => total + t.amount, 0);
+}
+
 function renderTransactions() {
     const list = document.getElementById("transaction-list");
     const balance = document.getElementById("balance");
